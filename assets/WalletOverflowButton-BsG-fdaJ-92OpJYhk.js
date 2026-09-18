@@ -1,0 +1,1 @@
+import{dm as s,f_ as t,fS as i,f$ as x}from"./index-CCDNtwpF.js";import{W as e}from"./wallet-DjmoDH3n.js";const n=({onClick:o,text:r})=>s.jsxs(t,{onClick:o,children:[s.jsx(i,{children:s.jsx(e,{})}),s.jsx(x,{children:r})]});export{n as m};
