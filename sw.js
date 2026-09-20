@@ -2,7 +2,7 @@
  * Never caches chain reads (/rpc) or cross-origin requests (RPC, CDNs, esm.sh).
  * HTML is network-first (so new deploys show up); hashed assets are
  * stale-while-revalidate (immutable, safe to serve from cache instantly). */
-const CACHE = "elcasino-v1";
+const CACHE = "elcasino-v2";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./elcasino_logo.png", "./elcasino_logo.png", "./elcasino_logo.png"];
 
 self.addEventListener("install", (e) => {
