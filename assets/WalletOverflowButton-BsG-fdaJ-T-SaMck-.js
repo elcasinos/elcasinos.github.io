@@ -1,0 +1,1 @@
+import{j as s}from"./vendor-react-DSMResu1.js";import{aH as t,W as i,aI as m}from"./privyHost-RBvAfy3u.js";import{b9 as x}from"./vendor-icons-D9esiFkE.js";const n=({onClick:o,text:r})=>s.jsxs(t,{onClick:o,children:[s.jsx(i,{children:s.jsx(x,{})}),s.jsx(m,{children:r})]});export{n as m};
