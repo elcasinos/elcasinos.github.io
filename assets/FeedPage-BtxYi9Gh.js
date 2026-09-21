@@ -1,1 +1,0 @@
-import{as as e,a_ as s,a$ as a}from"./index-B0mT8UW2.js";function i(){return e.jsxs("div",{className:"animate-fade-up",children:[e.jsxs("div",{className:"flex items-center gap-2 mb-4",children:[e.jsx(s,{size:20,className:"text-blood-400"}),e.jsx("h1",{className:"text-2xl font-bold tracking-tight",children:"Posts"})]}),e.jsx(a,{})]})}export{i as default};
