@@ -1,0 +1,1 @@
+import{r as t}from"./vendor-react-Dw-pcWBf.js";const n="casino:balance-refresh";function a(){try{window.dispatchEvent(new Event(n))}catch{}}function s(e){t.useEffect(()=>(window.addEventListener(n,e),()=>window.removeEventListener(n,e)),[e])}export{a as e,s as u};
