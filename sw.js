@@ -1,8 +1,8 @@
 /* Midgard Finance service worker — offline app shell + fast repeat loads.
  * Never caches chain reads (/rpc) or cross-origin requests (RPC, CDNs, esm.sh).
- * HTML is network-first (so new deploys show up); hashed assets are
- * stale-while-revalidate (immutable, safe to serve from cache instantly). */
-const CACHE = "elcasino-v2";
+ * HTML and un-hashed public files are network-first (so a deploy shows up on the first load);
+ * only content-hashed /assets/ are stale-while-revalidate (immutable, safe from cache). */
+const CACHE = "elcasino-v3"; // bumped: drops caches that held stale public/ files
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./elcasino_logo.png", "./elcasino_logo.png", "./elcasino_logo.png"];
 
 self.addEventListener("install", (e) => {
@@ -38,13 +38,26 @@ self.addEventListener("fetch", (e) => {
     return;
   }
 
-  // Static assets (content-hashed): serve cache instantly, refresh in background.
+  // Content-hashed build assets (/assets/name-<hash>.ext) never change under the same URL:
+  // serve from cache instantly, refresh in the background.
+  if (/\/assets\/[^/]+-[\w-]{8,}\.[a-z0-9]+$/i.test(url.pathname)) {
+    e.respondWith(
+      caches.open(CACHE).then(async (cache) => {
+        const cached = await cache.match(req);
+        const network = fetch(req).then((res) => { if (res && res.ok) cache.put(req, res.clone()); return res; }).catch(() => cached);
+        return cached || network;
+      })
+    );
+    return;
+  }
+
+  // Everything else keeps its name across deploys (public/ files): network-first, so a deploy
+  // shows up on the FIRST load; the cache is only the offline fallback.
   e.respondWith(
-    caches.open(CACHE).then(async (cache) => {
-      const cached = await cache.match(req);
-      const network = fetch(req).then((res) => { if (res && res.ok) cache.put(req, res.clone()); return res; }).catch(() => cached);
-      return cached || network;
-    })
+    fetch(req).then((res) => {
+      if (res && res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {}); }
+      return res;
+    }).catch(() => caches.match(req))
   );
 });
 
