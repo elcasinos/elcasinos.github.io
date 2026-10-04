@@ -1,0 +1,88 @@
+{
+  "chainId": 4663,
+  "prediction": "0xFe23e1d572Df543AD987A9462D24F24C671FF104",
+  "deployBlock": 79359213,
+  "oracle": "0x721b2B60Ae68E601c5e276ec928d6aC54C4dbF1c",
+  "markets": [
+    {
+      "id": 0,
+      "label": "NVDA",
+      "key": "15m",
+      "interval": 900,
+      "asset": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "pool": "0xd4EB21209C4D6093f80B5b84f5C45cc093EA14a3",
+      "assetIs0": false,
+      "genesis": 1791059400
+    },
+    {
+      "id": 1,
+      "label": "NVDA",
+      "key": "1h",
+      "interval": 3600,
+      "asset": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "pool": "0xd4EB21209C4D6093f80B5b84f5C45cc093EA14a3",
+      "assetIs0": false,
+      "genesis": 1791061200
+    },
+    {
+      "id": 2,
+      "label": "NVDA",
+      "key": "4h",
+      "interval": 14400,
+      "asset": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "pool": "0xd4EB21209C4D6093f80B5b84f5C45cc093EA14a3",
+      "assetIs0": false,
+      "genesis": 1791072000
+    },
+    {
+      "id": 3,
+      "label": "NVDA",
+      "key": "1d",
+      "interval": 86400,
+      "asset": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "pool": "0xd4EB21209C4D6093f80B5b84f5C45cc093EA14a3",
+      "assetIs0": false,
+      "genesis": 1791072000
+    },
+    {
+      "id": 4,
+      "label": "PONS",
+      "key": "15m",
+      "interval": 900,
+      "asset": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
+      "pool": "0xf2A0bE59AB76b96f957bd5E5b967F2B75e8dB269",
+      "assetIs0": true,
+      "genesis": 1791059400
+    },
+    {
+      "id": 5,
+      "label": "PONS",
+      "key": "1h",
+      "interval": 3600,
+      "asset": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
+      "pool": "0xf2A0bE59AB76b96f957bd5E5b967F2B75e8dB269",
+      "assetIs0": true,
+      "genesis": 1791061200
+    },
+    {
+      "id": 6,
+      "label": "PONS",
+      "key": "4h",
+      "interval": 14400,
+      "asset": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
+      "pool": "0xf2A0bE59AB76b96f957bd5E5b967F2B75e8dB269",
+      "assetIs0": true,
+      "genesis": 1791072000
+    },
+    {
+      "id": 7,
+      "label": "PONS",
+      "key": "1d",
+      "interval": 86400,
+      "asset": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
+      "pool": "0xf2A0bE59AB76b96f957bd5E5b967F2B75e8dB269",
+      "assetIs0": true,
+      "genesis": 1791072000
+    }
+  ]
+}

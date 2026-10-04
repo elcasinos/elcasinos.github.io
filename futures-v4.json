@@ -1,0 +1,51 @@
+{
+  "chainId": 4663,
+  "perps": "0xF5FE0c274ba34B4A7f126Ac51258f611Ee21EbCC",
+  "deployBlock": 79358818,
+  "oracle": "0x721b2B60Ae68E601c5e276ec928d6aC54C4dbF1c",
+  "feeTo": "0x87A7A3D8f13f92795e2Ce5016B36E15893439B4F",
+  "markets": [
+    {
+      "id": 0,
+      "label": "NVDA",
+      "asset": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC",
+      "pool": "0xd4EB21209C4D6093f80B5b84f5C45cc093EA14a3"
+    },
+    {
+      "id": 1,
+      "label": "TSLA",
+      "asset": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d",
+      "pool": "0xf4ACdAEEB7022862A763C9B1B885e11191c889E3"
+    },
+    {
+      "id": 2,
+      "label": "META",
+      "asset": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35",
+      "pool": "0xa4BdB396a69617eb7F70E2cc1EF526f7340b1B0d"
+    },
+    {
+      "id": 3,
+      "label": "PONS",
+      "asset": "0x39dBED3a2bd333467115dE45665cC57F813C4571",
+      "pool": "0xEd50bDeeA8aDC232f159486192a4157281D722ff"
+    },
+    {
+      "id": 4,
+      "label": "Index",
+      "asset": "0x56910D4409F3a0C78C64DD8D0545FF0705389870",
+      "pool": "0xD29893fFac8b29eC4Db2cfE0CDB3FE1377c028Ff"
+    },
+    {
+      "id": 5,
+      "label": "AI",
+      "asset": "0x2E8c31162b855A2ffa90F6F8634643Ad6F111e18",
+      "pool": "0xc4a21f9d6485FC5893DD4A491B320a83DAF4Da1D"
+    },
+    {
+      "id": 6,
+      "label": "CASHCAT",
+      "asset": "0x020bfC650A365f8BB26819deAAbF3E21291018b4",
+      "pool": "0xA70fc67C9F69da90B63a0e4C05D229954574E313"
+    }
+  ]
+}

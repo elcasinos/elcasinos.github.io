@@ -1,0 +1,14 @@
+import{r as m,j as e,a1 as I,aw as P}from"./vendor-react-Dw-pcWBf.js";import{d as W,l as A,g as F,ay as v,bz as j,o as M,b as V}from"./privyHost-B8_vgoSy.js";import{L as b,u as S,h as T}from"./ModalFooter-DKyozrEX-DRwpjSZl.js";import{r as H}from"./Subtitle-CV-2yKE4-C1gY_ncD.js";import{e as $}from"./Title-BnzYV3Is-CEDQA8Us.js";import"./index-Dxd-s6nc.js";import"./preload-helper-C1FmrZbK.js";import"./vendor-ethers-DUDe0QEX.js";import"./vendor-supabase-kOjTseMU.js";import"./vendor-icons-DltxYJIW.js";import"./vendor-wagmi-BXbL8uxF.js";const z=V.div`
+  && {
+    border-width: 4px;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  aspect-ratio: 1;
+  border-style: solid;
+  border-color: ${i=>i.$color??"var(--privy-color-accent)"};
+  border-radius: 50%;
+`,X={component:()=>{var g;let{user:i}=W(),{client:k,walletProxy:u,refreshSessionAndUser:C,closePrivyModal:l}=A(),s=F(),{entropyId:f,entropyIdVerifier:E}=((g=s.data)==null?void 0:g.recoverWallet)??{},[n,p]=m.useState(!1),[c,R]=m.useState(null),[d,h]=m.useState(null);function y(){var r,o,t,a;if(!n){if(d)return(o=(r=s.data)==null?void 0:r.setWalletPassword)==null||o.onFailure(d),void l();if(!c)return(a=(t=s.data)==null?void 0:t.setWalletPassword)==null||a.onFailure(Error("User exited set recovery flow")),void l()}}s.onUserCloseViaDialogOrKeybindRef.current=y;let U=!(!n&&!c);return e.jsxs(e.Fragment,d?{children:[e.jsx(b,{onClose:y},"header"),e.jsx(z,{$color:"var(--privy-color-error)",style:{alignSelf:"center"},children:e.jsx(I,{height:38,width:38,stroke:"var(--privy-color-error)"})}),e.jsx($,{style:{marginTop:"0.5rem"},children:"Something went wrong"}),e.jsx(v,{style:{minHeight:"2rem"}}),e.jsx(S,{onClick:()=>h(null),children:"Try again"}),e.jsx(T,{})]}:{children:[e.jsx(b,{onClose:y},"header"),e.jsx(P,{style:{width:"3rem",height:"3rem",alignSelf:"center"}}),e.jsx($,{style:{marginTop:"0.5rem"},children:"Automatically secure your account"}),e.jsx(H,{style:{marginTop:"1rem"},children:"When you log into a new device, you’ll only need to authenticate to access your account. Never get logged out if you forget your password."}),e.jsx(v,{style:{minHeight:"2rem"}}),e.jsx(S,{loading:n,disabled:U,onClick:()=>async function(){p(!0);try{let r=await k.getAccessToken(),o=j(i,f);if(!r||!u||!o)return;if(!(await u.setRecovery({accessToken:r,entropyId:f,entropyIdVerifier:E,existingRecoveryMethod:o.recoveryMethod,recoveryMethod:"privy"})).entropyId)throw Error("Unable to set recovery on wallet");let t=await C();if(!t)throw Error("Unable to set recovery on wallet");let a=j(t,o.address);if(!a)throw Error("Unabled to set recovery on wallet");R(!!t),setTimeout(()=>{var w,x;(x=(w=s.data)==null?void 0:w.setWalletPassword)==null||x.onSuccess(a),l()},M)}catch(r){h(r)}finally{p(!1)}}(),children:c?"Success":"Confirm"}),e.jsx(T,{})]})}};export{X as SetAutomaticRecoveryScreen,X as default};
