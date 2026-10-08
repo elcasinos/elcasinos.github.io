@@ -1,0 +1,1 @@
+const r=(t,n=5)=>{if(!(t>0))return 0;const o=Math.pow(10,Math.floor(Math.log10(t))-(n-1));return Number((Math.floor(t/o+1e-9)*o).toPrecision(12))};function e(t,n,o){const a=n>1?t.maxPayout/(n-1):1/0;return r(Math.max(0,Math.min(t.maxStake,a,o??1/0)*.999))}function i(t,n,o){return{maxStake:t*n/1e4*.998,maxPayout:Math.min(t,t*o/1e4)*.998}}export{i as c,r as f,e as m};

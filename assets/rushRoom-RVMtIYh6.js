@@ -1,0 +1,1 @@
+import{D as a,P as e}from"./elgatesRoom-D5CHM9RL.js";const n={...a,rtpBP:9700},c={5e3:.982,2500:.977,1e3:.952,500:.919},t={5e3:97.05,2500:95.05,1e3:87.5,500:78.7},o=s=>(c[s.maxWinX]??.9)*(s.rtpBP/1e4),r=s=>(t[s.maxWinX]??80)*(s.rtpBP/1e4)/s.buyPriceX,_=s=>Math.max(100,Math.ceil(t[s]??100)),u=s=>e-o(s);export{n as D,t as R,_ as a,r as b,o as c,u as r};
