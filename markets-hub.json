@@ -1,0 +1,25 @@
+{
+  "chainId": 4663,
+  "hub": "0x2AC7854F4DBd6e18933dc6c87598532641898Ad1",
+  "hubs": [
+    "0x2AC7854F4DBd6e18933dc6c87598532641898Ad1",
+    "0xf31da25f3F4E2f041c63Aa0751ceB69f50fdFd5c"
+  ],
+  "legacy": [
+    "0xBd65EE837e57D5060013cbE8bAc8a6d0F8037f45",
+    "0x9DB90Cf484614C3424a49B0cB0b6E5cA7b6a850F",
+    "0xB7eF17054fb9541dd9Bc58E932Af116d11f2fD3f"
+  ],
+  "block": 100254800,
+  "perpsImpl": "0xd65406D03835E91Ed14C9048b264A66864cA30Ac",
+  "predictImpl": "0xEB6C35a4180D8231A8f0834088AbCf35fd08B017",
+  "launchpad": "0xA252B4A33CC9501b0B3918cB81B5A5E6db682a43",
+  "reserve": "0xcEE714f229137D6865f0d80423798Db1D002d208",
+  "burner": "0x022f5942dd4bC3eaBbcBab9CF02b4C38281ce964",
+  "featured": [
+    "0xE73f12D9d81ff6b11c1d0261F440c2EA4C400E18",
+    "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"
+  ],
+  "launchHub": "0xf31da25f3F4E2f041c63Aa0751ceB69f50fdFd5c",
+  "note": "2026-10-28: next version \u2014 public hub V3 (anyone lists) + the launchpad V3 hub (its reserve opens launch tokens' books). The old hubs are legacy: not listed, their books still open by link so positions can close."
+}

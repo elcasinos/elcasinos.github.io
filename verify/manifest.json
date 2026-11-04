@@ -1,0 +1,133 @@
+{
+ "chainId": 4663,
+ "compiler": "0.8.28+commit.7893614a",
+ "contracts": {
+  "launchToken": {
+   "name": "ElcasLaunchToken",
+   "id": "src/launch/ElcasLaunchToken.sol:ElcasLaunchToken",
+   "file": "ElcasLaunchToken.json"
+  },
+  "coinflip": {
+   "name": "CoinflipGameV6",
+   "id": "src/v6/CoinflipGameV6.sol:CoinflipGameV6",
+   "file": "CoinflipGameV6.json"
+  },
+  "dice": {
+   "name": "DiceGameV6",
+   "id": "src/v6/DiceGameV6.sol:DiceGameV6",
+   "file": "DiceGameV6.json"
+  },
+  "slots": {
+   "name": "SlotGameV6",
+   "id": "src/v6/SlotGameV6.sol:SlotGameV6",
+   "file": "SlotGameV6.json"
+  },
+  "wheel": {
+   "name": "WheelGameV6",
+   "id": "src/v6/WheelGameV6.sol:WheelGameV6",
+   "file": "WheelGameV6.json"
+  },
+  "mines": {
+   "name": "MinesGameV6",
+   "id": "src/v6/MinesGameV6.sol:MinesGameV6",
+   "file": "MinesGameV6.json"
+  },
+  "plinko": {
+   "name": "PlinkoGameV6",
+   "id": "src/v6/PlinkoGameV6.sol:PlinkoGameV6",
+   "file": "PlinkoGameV6.json"
+  },
+  "roulette": {
+   "name": "RouletteGameV6",
+   "id": "src/v6/RouletteGameV6.sol:RouletteGameV6",
+   "file": "RouletteGameV6.json"
+  },
+  "crash": {
+   "name": "CrashGameV6",
+   "id": "src/v6/CrashGameV6.sol:CrashGameV6",
+   "file": "CrashGameV6.json"
+  },
+  "blackjack": {
+   "name": "BlackjackGameV6",
+   "id": "src/v6/BlackjackGameV6.sol:BlackjackGameV6",
+   "file": "BlackjackGameV6.json"
+  },
+  "elgates": {
+   "name": "ElGatesGameV7",
+   "id": "src/v6/ElGatesGameV7.sol:ElGatesGameV7",
+   "file": "ElGatesGameV7.json"
+  },
+  "elrush": {
+   "name": "ElRushGameV6",
+   "id": "src/v6/ElRushGameV6.sol:ElRushGameV6",
+   "file": "ElRushGameV6.json"
+  },
+  "billiards": {
+   "name": "BilliardsGameV6",
+   "id": "src/v6/BilliardsGameV6.sol:BilliardsGameV6",
+   "file": "BilliardsGameV6.json"
+  },
+  "bowling": {
+   "name": "BowlingGameV6",
+   "id": "src/v6/BowlingGameV6.sol:BowlingGameV6",
+   "file": "BowlingGameV6.json"
+  },
+  "crossing": {
+   "name": "CrossingGameV6",
+   "id": "src/v6/CrossingGameV6.sol:CrossingGameV6",
+   "file": "CrossingGameV6.json"
+  },
+  "derby": {
+   "name": "DerbyGameV6",
+   "id": "src/v6/DerbyGameV6.sol:DerbyGameV6",
+   "file": "DerbyGameV6.json"
+  },
+  "hilo": {
+   "name": "HiLoGameV6",
+   "id": "src/v6/HiLoGameV6.sol:HiLoGameV6",
+   "file": "HiLoGameV6.json"
+  },
+  "keno": {
+   "name": "KenoGameV6",
+   "id": "src/v6/KenoGameV6.sol:KenoGameV6",
+   "file": "KenoGameV6.json"
+  },
+  "show": {
+   "name": "ShowGameV6",
+   "id": "src/v6/ShowGameV6.sol:ShowGameV6",
+   "file": "ShowGameV6.json"
+  },
+  "tower": {
+   "name": "TowerGameV6",
+   "id": "src/v6/TowerGameV6.sol:TowerGameV6",
+   "file": "TowerGameV6.json"
+  },
+  "poker": {
+   "name": "VideoPokerGameV6",
+   "id": "src/v6/VideoPokerGameV6.sol:VideoPokerGameV6",
+   "file": "VideoPokerGameV6.json"
+  }
+ },
+ "factories": {
+  "0x55190a1b037dd5da29031a18d18ecf1ea77f13e3": "coinflip",
+  "0x3f9367c890e814c90d500b0e8723e8ae5dd6b99f": "dice",
+  "0xbb175854c08cb7d18217c2f67aaf235f421d94d3": "slots",
+  "0xa7ce2300509c68f0eca46cbdaa7ea83fa01932d3": "wheel",
+  "0xf330bfccee1b36338dd7e9556679979bf75fead7": "mines",
+  "0xb6bba1643290632e88edde60bf4b9bd6670fcef9": "plinko",
+  "0x08a24d597a748b9bee85eecd215c903af7bb231b": "roulette",
+  "0x3c397832a08bb0aadd9de604b2db1642bbfe1a7d": "crash",
+  "0x83ba15145eb74bf54c0bedd1c8d3be9509a2b600": "blackjack",
+  "0xa9e48a8774a0e2f577b8c49df2b12af7bdb8b0bf": "elgates",
+  "0xea203b5813a145f542fed223533bd97c210a67dc": "elrush",
+  "0x58fcee7fedb9a324a3c1570d2644ec4c87be44e3": "billiards",
+  "0x67a98f0a0a73d697c9ece3f310e28ffc89c491b8": "bowling",
+  "0xff6f1a93b662e6e6eb73632b3b9ce8fbfa15083e": "crossing",
+  "0x5c5df8cc39cab5790981a6ab4e1c016397973111": "derby",
+  "0x69eeab0020ebd064afaa8e35d0e64f6b8a2842b4": "hilo",
+  "0xa17bf3952c23c19e9b0c3f017ebaca3006216ffd": "keno",
+  "0x542bb8e1f9ed0e0a523910b18843f5da22711d2f": "show",
+  "0x5bffd94d0ae1d2fc9c78f5909f43df700552029c": "tower",
+  "0xf7edfecb155e4065c7f8684820b21503098b05b8": "poker"
+ }
+}

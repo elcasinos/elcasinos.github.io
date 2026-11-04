@@ -1,0 +1,77 @@
+{
+  "name": "EL-Casino Launchpad",
+  "version": "3 (Uniswap v4 + the EL launch hook, live 2026-10-28)",
+  "website": "https://elcas.app/#/launch",
+  "x": "https://x.com/elcas_casino",
+  "telegram": "https://t.me/elcasinos",
+  "logo": "https://elcas.app/elcasino_logo.png",
+  "chain": { "name": "Robinhood Chain", "chainId": 4663 },
+  "summary": "Token launchpad: every launch is a plain fixed-supply ERC-20 (1,000,000,000, 18 decimals, no mint, no transfer tax, no owner) that trades on its own Uniswap v4 pool from the first block, against native ETH or an owner-listed quote asset (tokenized stocks / stables). 80% of the supply is the pool's single-sided liquidity, owned by the launchpad forever (the hook refuses every removal); 20% goes to the token's game reserve (10% casino rooms in every EL-Casino game, 7% perps vault, 3% predict house). The launch hook takes a fixed 3% of every swap in the quote asset. There is no bonding curve: 'unlocked' (graduated) = the launch position holds the quote's gradAmount (4.2 ETH for ETH), which opens the token's perps and predict markets.",
+  "contracts": {
+    "launchpad": "0xA252B4A33CC9501b0B3918cB81B5A5E6db682a43",
+    "launchHook": "0xBdD854c9eC87dC99B695F6c72Ab1320af4322ACc",
+    "gameReserve": "0xcEE714f229137D6865f0d80423798Db1D002d208",
+    "burner": "0x022f5942dd4bC3eaBbcBab9CF02b4C38281ce964",
+    "holderConverter": "0x7BA1e82DacA4751cf88D28b73f179a3b0B7444af",
+    "uniswapV4PoolManager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+    "uniswapV4Quoter": "0xE5de267F286be2ecbB0c29344cb4189914A58Ad0",
+    "weth": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+    "owner": "0x149cF6b96F4A73B3F273993ee6FFFACB37e0A4Fa"
+  },
+  "deployBlock": 100254868,
+  "liveSince": "2026-10-28",
+  "previousVersion": { "launchpad": "0xAeB56aEdA96d56d43Eee63658397BAC3f950B6be", "note": "Launchpad V6 (Uniswap v3, 2026-10-24 → 2026-10-28): its few tokens still trade on their v3 pools; no new launches there." },
+  "detectingLaunches": {
+    "event": "Launched(address indexed token, address indexed creator, address indexed quote, address poolView, bool holders)",
+    "topic0": "0x08a9ef087e4ba2a563186d36c61f188534fc83c8b63a2963e2e96d193aea2cdc",
+    "emittedBy": "launchpad",
+    "views": {
+      "tokenCount()": "number of launches",
+      "tokens(uint256 i) returns (address)": "the i-th launch token, oldest first",
+      "launches(address token) returns (address creator, address quote, address poolView, bool tokenIs0, bool holders, uint64 launchedAt, uint32 window, uint16 maxTxBps, uint16 maxWalletBps, bytes32 root, int24 tickLower, int24 tickUpper, uint128 liquidity)": "a launch: its creator, quote asset (address(0) = native ETH), v3-shaped pool view, anti-snipe settings and locked position",
+      "keyOf(address token) returns (PoolKey)": "the token's Uniswap v4 PoolKey (fee 0, tickSpacing 200, hooks = the launch hook)",
+      "creatorOf(address token) returns (address)": "the creator (fee wallet); can be handed over by the creator",
+      "quoteInPool(address token) returns (uint256)": "the quote held in the launch position (graduation progress)",
+      "graduated(address token) returns (bool)": "quoteInPool >= the quote's gradAmount"
+    }
+  },
+  "pool": {
+    "type": "Uniswap v4",
+    "fee": 0,
+    "hookFee": "3% of every swap, in the quote asset, taken by the launch hook",
+    "tickSpacing": 200,
+    "pair": "TOKEN / quote (native ETH or an owner-listed asset)",
+    "openingTick": -207200,
+    "openingMarketCapEth": 1.0,
+    "poolId": "keccak256(abi.encode(currency0, currency1, 0, 200, launchHook))",
+    "liquidity": "one single-sided position from the opening price outward, owned by the launchpad; the hook refuses every removal",
+    "swapEvent": "Uniswap v4 PoolManager Swap(bytes32 indexed id, address indexed sender, int128 amount0, int128 amount1, uint160 sqrtPriceX96, uint128 liquidity, int24 tick, uint24 fee), topic0 0x40e9cecb9f5f1f1c5b9c97dec2917b7ee92e57ba5563708daca94dd84ad7112f, filtered by the pool id",
+    "priceView": "each launch's poolView answers slot0() / observe() like a v3 pool (the hook keeps a 4000-slot observation ring)"
+  },
+  "graduation": {
+    "name": "unlock",
+    "rule": "the launch position holds >= the quote's gradAmount (4.2 ETH for ETH) and the token is at least a day old — perps and predict markets open; trading never moves",
+    "progress": "quoteInPool(token) / gradAmount"
+  },
+  "tokenMetadata": {
+    "onChain": true,
+    "views": ["logo() returns (string)", "description() returns (string)", "socials() returns (string website, string x, string telegram, string discord, string farcaster)", "creator() returns (address)", "rewardAssetsList() returns (address[])"],
+    "events": ["MetadataUpdated(string logo, string description)", "SocialsUpdated(string website, string x, string telegram, string discord, string farcaster)"]
+  },
+  "fees": {
+    "launchFee": "0.003 ETH per ETH launch (the keeper budget that opens the token's rooms and markets); other quotes: an owner-set amount sent to the burner",
+    "tradingFee": "3% of every swap, in the quote asset. process(token) splits it (Processed, topic0 0xe733e999852d339207730c3c3f1c7d75e9625aad45ec801a0b921867d1381c83): a third to the burner (buys and burns $ELCAS), a third buys the token back for its game stakers, a third to the creator — or, if chosen at launch, bought as an index of tokenized stocks and paid to the token's holders",
+    "taxes": "none — the token has no transfer tax"
+  },
+  "launchProtection": {
+    "what": "Chosen by the creator at launch: an anti-snipe window of 0, 5 min, 10 min or 1 h. During it every buy must go through the launchpad (direct pool swaps are refused by the hook) and pays an extra tax decaying linearly from startTaxBps (<= 30%) to 0; optional per-buy and per-wallet caps and an optional merkle whitelist apply. Sells are never limited. After the window anyone trades on any Uniswap v4 router.",
+    "securityScannerNotes": {
+      "external_call": "The token has no transfer hook; the window is enforced by the pool's hook and the launchpad router.",
+      "anti_whale": "Only inside the creator's window (at most 1 day), set once at launch; not modifiable."
+    }
+  },
+  "openData": {
+    "defillama": "https://github.com/DefiLlama/dimension-adapters/pull/10511",
+    "indexHint": "Every launch: Launched logs of the launchpad from deployBlock; trades: PoolManager Swap logs filtered by each launch's pool id."
+  }
+}
